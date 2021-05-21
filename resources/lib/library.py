@@ -108,7 +108,7 @@ def handle_tvshows(li,item,searchstring=None):
     dbid = item['tvshowid']
     season = item['season']
     episode = item['episode']
-    watchedepisodes = item['watchedepisodes']
+    watchedepisodes = item.get('watchedepisodes', 0)
     unwatchedepisodes = get_unwatched(episode,watchedepisodes)
 
     if not condition('Window.IsVisible(movieinformation)'):
@@ -173,7 +173,7 @@ def handle_seasons(li,item):
     tvshowdbid = item['tvshowid']
     season = item['season']
     episode = item['episode']
-    watchedepisodes = item['watchedepisodes']
+    watchedepisodes = item.get('watchedepisodes', 0)
     unwatchedepisodes = get_unwatched(episode,watchedepisodes)
 
     if season == 0:
